@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ConnectingRibbon from "@/components/ConnectingRibbon";
-import ContactForm from "@/components/ContactForm";
 import FloatingBar from "@/components/FloatingBar";
 import Marquee from "@/components/Marquee";
 import SiteHeader from "@/components/SiteHeader";
@@ -18,7 +17,6 @@ import {
 } from "@/components/motion";
 import {
   awards,
-  campusPhotos,
   curriculumSteps,
   deptIntro,
   heroStats,
@@ -40,7 +38,19 @@ export default function HomePage() {
 
       <section className="relative z-10 min-h-[100svh] w-full overflow-hidden">
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-4 pb-10 pt-24 md:px-8 md:pt-28 md:pb-16 lg:px-10">
-          <div className="pointer-events-none relative mx-auto flex h-[220px] w-full max-w-lg items-end justify-center sm:h-[260px] md:h-[300px]">
+          <FadeIn className="mx-auto w-full max-w-xl text-center">
+            <p className="text-sm font-semibold text-accent-deep md:text-base">
+              {siteConfig.yearLabel} {siteConfig.school} 신입생 모집안내
+            </p>
+            <p className="mt-2 text-sm font-bold text-brand md:text-base">
+              입학 후 전공학과 선택과 교과목 설계가 자유로운
+            </p>
+            <h1 className="mt-2 break-keep font-[family-name:var(--font-display)] text-[1.85rem] leading-[1.2] font-black tracking-tight text-brand sm:text-5xl md:text-6xl lg:text-7xl">
+              {siteConfig.brand}
+            </h1>
+          </FadeIn>
+
+          <div className="pointer-events-none relative mx-auto mt-3 flex h-[200px] w-full max-w-lg items-end justify-center sm:h-[240px] md:mt-4 md:h-[280px]">
             <motion.div
               className="absolute left-[18%] top-2 w-[110px] sm:left-[22%] sm:w-[140px] md:w-[170px]"
               initial={{ opacity: 0, y: 16 }}
@@ -85,33 +95,24 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          <FadeIn className="relative z-10 mx-auto mt-2 w-full max-w-xl rounded-3xl bg-white/80 p-5 shadow-lg shadow-pink-100/40 backdrop-blur-md md:mt-4 md:bg-white/55 md:p-6">
-            <p className="text-sm font-semibold text-accent-deep md:text-base">
-              {siteConfig.yearLabel} {siteConfig.school} 신입생 모집안내
+          <FadeIn className="relative z-10 mx-auto mt-2 w-full max-w-xl text-center md:mt-4">
+            <p className="hero-tagline break-keep font-[family-name:var(--font-display)] text-[1.5rem] leading-[1.25] font-black sm:text-3xl md:text-4xl lg:text-5xl">
+              {siteConfig.tagline}
             </p>
-            <p className="mt-3 text-sm font-bold text-brand md:text-base">
-              입학 후 전공학과 선택과 교과목 설계가 자유로운
-            </p>
-            <h1 className="mt-2 break-keep font-[family-name:var(--font-display)] text-[1.85rem] leading-[1.2] font-black tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="block text-brand">{siteConfig.brand}</span>
-              <span className="mt-2 block text-[1.35rem] sm:text-3xl md:text-4xl lg:text-5xl">
-                {siteConfig.tagline}
-              </span>
-            </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               {siteConfig.description}
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
               <TagBadge tone="rose">교과 100% 🎯</TagBadge>
               <TagBadge tone="brand">면접·실기 없음 ✨</TagBadge>
               <TagBadge tone="accent">3년제 탐색 후 배치 🎬</TagBadge>
             </div>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:items-center">
               <MotionButton
                 href="#contact"
                 className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-brand px-6 text-base font-bold text-white shadow-xl shadow-pink-200/70"
               >
-                💬 카카오·이메일 상담
+                💬 카카오 상담
               </MotionButton>
               <MotionButton
                 href="#curriculum"
@@ -122,7 +123,7 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          <Stagger className="mt-auto grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-12">
+          <Stagger className="mt-14 grid grid-cols-1 gap-3 sm:mt-16 sm:grid-cols-3 md:mt-20">
             {heroStats.map((stat) => (
               <StaggerItem key={stat.label}>
                 <GlowCard className="soft-panel rounded-3xl px-5 py-4">
@@ -239,7 +240,28 @@ export default function HomePage() {
             title="영상자율전공학과만의 특별함"
           />
         </FadeIn>
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <FadeIn className="mt-6 md:mt-8">
+          <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-pink-200/50">
+            <Image
+              src="/assets/life-01.png"
+              alt="친해지길바라 · 새내기 교류 현장"
+              width={1600}
+              height={900}
+              className="h-[240px] w-full object-cover sm:h-[320px] md:h-[420px] lg:h-[520px]"
+            />
+          </div>
+        </FadeIn>
+        <div className="mt-8 grid grid-cols-1 items-start gap-6 lg:grid-cols-[0.65fr_1.35fr]">
+          <FadeIn className="mx-auto w-full max-w-sm lg:mx-0">
+            <Image
+              src="/assets/life-set.png"
+              alt="영상자율전공학과 캐릭터"
+              width={491}
+              height={600}
+              unoptimized
+              className="h-auto w-full object-contain drop-shadow-[0_18px_28px_rgba(225,29,140,0.18)]"
+            />
+          </FadeIn>
           <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {specials.map((item) => (
               <StaggerItem key={item.no}>
@@ -257,33 +279,6 @@ export default function HomePage() {
               </StaggerItem>
             ))}
           </Stagger>
-          <FadeIn>
-            <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-pink-200/50">
-              <Image
-                src="/assets/life-01.png"
-                alt="친해지길바라 · 새내기 교류 현장"
-                width={1200}
-                height={800}
-                className="h-auto w-full object-cover"
-              />
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              {campusPhotos.slice(1).map((photo) => (
-                <div
-                  key={photo.src}
-                  className="overflow-hidden rounded-2xl shadow-lg shadow-slate-200/70"
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    width={600}
-                    height={400}
-                    className="h-40 w-full object-cover md:h-44"
-                  />
-                </div>
-              ))}
-            </div>
-          </FadeIn>
         </div>
       </section>
 
@@ -309,6 +304,8 @@ export default function HomePage() {
                 <StaggerItem key={link.id}>
                   <MotionButton
                     href={link.url}
+                    target={link.url.startsWith("http") ? "_blank" : undefined}
+                    rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
                     className={`flex min-h-[5.5rem] w-full flex-col justify-center rounded-3xl px-5 py-4 shadow-md ${tone}`}
                   >
                     <span className="text-lg font-extrabold">{link.label}</span>
@@ -336,62 +333,47 @@ export default function HomePage() {
 
       <section id="contact" className="relative z-10 bg-[#fff0f7]/45">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-            <FadeIn>
-              <SectionHeading
-                emoji="💬"
-                eyebrow="Contact"
-                title="입시상담 바로가기"
-                desc="카카오톡 오픈채팅 QR을 찍거나, 아래 전화·메일로 문의하세요."
-              />
-              <div className="soft-panel mt-6 flex flex-col items-center gap-4 rounded-3xl p-5 sm:flex-row sm:items-start">
-                <Image
-                  src="/assets/qr-kakao.png"
-                  alt="입시상담 카카오톡 오픈채팅 QR"
-                  width={220}
-                  height={220}
-                  className="h-44 w-44 rounded-2xl object-cover ring-1 ring-brand/15"
-                />
-                <div className="space-y-3 text-center sm:text-left">
-                  <p className="font-extrabold text-slate-900">카카오톡 오픈채팅방</p>
-                  <p className="text-sm text-slate-600">
-                    리플렛과 동일한 입시상담 QR입니다. 스마트폰으로 스캔해 주세요.
-                  </p>
-                  <a
-                    href={`tel:${tel}`}
-                    className="block font-[family-name:var(--font-display)] text-2xl font-black text-brand-deep"
-                  >
-                    {siteConfig.phoneNumber}
-                  </a>
-                  <p className="text-sm font-semibold text-slate-700">
-                    영상자율전공학과 {siteConfig.deptPhone}
-                  </p>
-                  <p className="text-sm text-slate-500">
-                    {siteConfig.postalCode} {siteConfig.address}
-                  </p>
-                  <a
-                    href={siteConfig.admissionsUrl}
-                    className="inline-flex text-sm font-bold text-accent-deep underline"
-                  >
-                    입시홈페이지 ipsi.pro.ac.kr
-                  </a>
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn>
-              <div className="soft-panel rounded-3xl p-5 md:p-7">
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-extrabold text-slate-900">
-                  1:1 이메일 상담
-                </h3>
-                <p className="mt-1 text-sm text-slate-500">
-                  이름·연락처·이메일을 남겨주시면 담당자에게 전달됩니다.
+          <FadeIn className="mx-auto max-w-xl">
+            <SectionHeading
+              emoji="💬"
+              eyebrow="Contact"
+              title="입시상담 바로가기"
+              desc="카카오톡 오픈채팅으로 바로 문의하거나, 아래 전화로 연락해 주세요."
+            />
+            <div className="soft-panel mt-6 space-y-4 rounded-3xl p-5 md:p-6">
+              <a
+                href={siteConfig.kakaoOpenChatUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl bg-[#FEE500] px-5 text-base font-extrabold text-[#191919] shadow-md transition hover:brightness-95"
+              >
+                카카오톡 오픈채팅 상담
+              </a>
+              <p className="text-sm leading-relaxed text-slate-600">
+                모바일에서는 카카오톡이 바로 열립니다. PC에서는 카카오 페이지에서 접속용 QR이 표시됩니다.
+              </p>
+              <div className="space-y-3 border-t border-slate-100 pt-4">
+                <a
+                  href={`tel:${tel}`}
+                  className="block font-[family-name:var(--font-display)] text-2xl font-black text-brand-deep"
+                >
+                  {siteConfig.phoneNumber}
+                </a>
+                <p className="text-sm font-semibold text-slate-700">
+                  영상자율전공학과 {siteConfig.deptPhone}
                 </p>
-                <div className="mt-5">
-                  <ContactForm />
-                </div>
+                <p className="text-sm text-slate-500">
+                  {siteConfig.postalCode} {siteConfig.address}
+                </p>
+                <a
+                  href={siteConfig.admissionsUrl}
+                  className="inline-flex text-sm font-bold text-accent-deep underline"
+                >
+                  입시홈페이지 ipsi.pro.ac.kr
+                </a>
               </div>
-            </FadeIn>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

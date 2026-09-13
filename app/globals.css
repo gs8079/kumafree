@@ -39,6 +39,34 @@ body {
   color: var(--ink);
 }
 
+@keyframes tagline-shift {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.hero-tagline {
+  background-image: linear-gradient(
+    90deg,
+    #e11d8c 0%,
+    #22c5d6 35%,
+    #fb923c 70%,
+    #e11d8c 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: tagline-shift 4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-tagline {
+    animation: none;
+    background-position: 0 0;
+  }
+}
+
 .hero-bright {
   background:
     radial-gradient(ellipse 60% 55% at 86% 72%, rgba(34, 197, 214, 0.22), transparent 58%),

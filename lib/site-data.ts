@@ -24,7 +24,8 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_ADMISSIONS_URL ?? "https://ipsi.pro.ac.kr",
   applyUrl: process.env.NEXT_PUBLIC_APPLY_URL ?? "https://ipsi.pro.ac.kr",
   kakaoOpenChatUrl:
-    process.env.NEXT_PUBLIC_KAKAO_OPENCHAT_URL ?? "#contact",
+    process.env.NEXT_PUBLIC_KAKAO_OPENCHAT_URL ??
+    "https://open.kakao.com/o/gH4QtsRh",
 };
 
 export const heroStats = [
@@ -149,14 +150,13 @@ export const quickLinks = [
   {
     id: "kakao",
     label: "카카오톡 입시상담",
-    hint: "오픈채팅방 QR로 바로가기",
-    url: "#contact",
+    hint: "오픈채팅 바로 열기",
+    url: "https://open.kakao.com/o/gH4QtsRh",
     tone: "mint" as const,
   },
 ];
 
 export const campusPhotos = [
-  { src: "/assets/life-01.png", alt: "영상자율전공학과 학생들의 수업·교류 현장" },
-  { src: "/assets/life-studio.png", alt: "스튜디오 실습 현장" },
-  { src: "/assets/life-set.png", alt: "촬영 현장 실습" },
+  { src: "/assets/life-01.png", alt: "친해지길바라 · 새내기 교류 현장" },
+  { src: "/assets/life-set.png", alt: "학과 캐릭터" },
 ];
