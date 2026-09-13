@@ -405,18 +405,15 @@ export default function HomePage() {
               title="입시상담 바로가기"
               desc="카카오톡 오픈채팅으로 바로 문의하거나, 아래 전화로 연락해 주세요."
             />
-            <div className="soft-panel mt-6 space-y-4 rounded-3xl p-5 md:p-6">
+            <div className="soft-panel mt-6 space-y-5 rounded-3xl p-5 md:p-6">
               <a
                 href={siteConfig.kakaoOpenChatUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl bg-[#FEE500] px-5 text-base font-extrabold text-[#191919] shadow-md transition hover:brightness-95"
+                className="inline-flex min-h-[4.25rem] w-full items-center justify-center gap-2 rounded-2xl bg-[#FEE500] px-5 text-lg font-black text-[#191919] shadow-[0_10px_28px_rgba(254,213,0,0.7)] ring-4 ring-[#FEE500]/50 transition hover:scale-[1.02] hover:brightness-95 sm:min-h-[4.75rem] sm:text-xl"
               >
                 카카오톡 오픈채팅 상담
               </a>
-              <p className="text-sm leading-relaxed text-slate-600">
-                모바일에서는 카카오톡이 바로 열립니다. PC에서는 카카오 페이지에서 접속용 QR이 표시됩니다.
-              </p>
               <div className="space-y-3 border-t border-slate-100 pt-4">
                 <a
                   href={`tel:${tel}`}
@@ -426,11 +423,6 @@ export default function HomePage() {
                 </a>
                 <p className="text-sm font-semibold text-slate-700">
                   영상자율전공학과 {siteConfig.deptPhone}
-                </p>
-                <p className="w-full max-w-full text-sm leading-7 text-slate-500 [overflow-wrap:anywhere] [word-break:break-word]">
-                  <span className="block">30056</span>
-                  <span className="block">세종특별자치시</span>
-                  <span className="block">장군면 대학길 300</span>
                 </p>
                 <a
                   href={siteConfig.admissionsUrl}
