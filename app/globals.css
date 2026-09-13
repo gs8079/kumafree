@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fff7fb;
+  --bg-soft: #ffe9f4;
+  --ink: #1f1633;
+  --muted: #5b5270;
+  --magenta: #e11d8c;
+  --magenta-deep: #be185d;
+  --cyan: #22c5d6;
+  --cyan-deep: #0e8fa0;
+  --orange: #fb923c;
+  --cream: #fffdf8;
+  --navy: #312e81;
+}
+
+@theme inline {
+  --color-brand: var(--magenta);
+  --color-brand-deep: var(--magenta-deep);
+  --color-accent: var(--cyan);
+  --color-accent-deep: var(--cyan-deep);
+  --color-cream: var(--cream);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--magenta) 35%, white);
+  color: var(--ink);
+}
+
+.hero-bright {
+  background:
+    radial-gradient(ellipse 60% 55% at 86% 72%, rgba(34, 197, 214, 0.22), transparent 58%),
+    radial-gradient(ellipse 50% 48% at 12% 18%, rgba(251, 113, 133, 0.26), transparent 52%),
+    radial-gradient(ellipse 40% 40% at 70% 8%, rgba(251, 146, 60, 0.18), transparent 50%),
+    linear-gradient(165deg, #fff7fb 0%, #ffe4f1 38%, #e8fbff 100%);
+}
+
+.soft-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(244, 114, 182, 0.18);
+  box-shadow: 0 20px 40px -12px rgba(190, 24, 93, 0.16);
+  border-radius: 1.5rem;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.04);
+  }
+}
+
+.animate-bob {
+  animation: bob 2.8s ease-in-out infinite;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@keyframes works-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.works-marquee-track {
+  animation: works-marquee 36s linear infinite;
+}
+
+.works-marquee:hover .works-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .works-marquee-track,
+  .animate-bob,
+  .animate-float {
+    animation: none;
+  }
+}
+
+.text-on-deco {
+  position: relative;
+  z-index: 2;
+  border-radius: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--bg) 88%, white);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px -12px rgba(190, 24, 93, 0.12);
+}
+
+@media (min-width: 768px) {
+  .text-on-deco {
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
