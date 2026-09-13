@@ -39,53 +39,53 @@ export default function HomePage() {
       <SiteHeader />
 
       <section className="relative z-10 min-h-[100svh] w-full overflow-hidden">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-4 pb-10 pt-24 md:px-8 md:pt-28 md:pb-16 lg:px-10">
+          <div className="pointer-events-none relative mx-auto flex h-[220px] w-full max-w-lg items-end justify-center sm:h-[260px] md:h-[300px]">
+            <motion.div
+              className="absolute left-[18%] top-2 w-[110px] sm:left-[22%] sm:w-[140px] md:w-[170px]"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.div
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Image
+                  src="/assets/cover-art2.png"
+                  alt=""
+                  width={258}
+                  height={247}
+                  unoptimized
+                  className="h-auto w-full object-contain drop-shadow-[0_18px_28px_rgba(225,29,140,0.2)]"
+                  priority
+                />
+              </motion.div>
+            </motion.div>
+            <motion.div
+              className="absolute right-[16%] top-6 w-[120px] sm:right-[20%] sm:w-[160px] md:top-4 md:w-[190px]"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Image
+                  src="/assets/cover-art1.png"
+                  alt=""
+                  width={303}
+                  height={455}
+                  unoptimized
+                  className="h-auto w-full object-contain drop-shadow-[0_22px_36px_rgba(14,116,144,0.16)]"
+                  priority
+                />
+              </motion.div>
+            </motion.div>
+          </div>
 
-        <motion.div
-          className="pointer-events-none absolute left-[4%] top-[18%] w-[140px] sm:left-[8%] sm:w-[180px] md:top-[14%] md:w-[210px]"
-          initial={{ opacity: 0, x: -24, rotate: -8 }}
-          animate={{ opacity: 1, x: 0, rotate: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Image
-              src="/assets/cover-art2.png"
-              alt=""
-              width={258}
-              height={247}
-              unoptimized
-              className="h-auto w-full object-contain drop-shadow-[0_18px_28px_rgba(225,29,140,0.2)]"
-              priority
-            />
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="pointer-events-none absolute right-[2%] bottom-[18%] w-[170px] sm:right-[6%] sm:bottom-[12%] sm:w-[220px] md:w-[260px] lg:right-[8%] lg:w-[280px]"
-          initial={{ opacity: 0, x: 28, scale: 0.96 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Image
-              src="/assets/cover-art1.png"
-              alt="너의 미래를 자유롭게 그려봐! 영상자율전공학과"
-              width={303}
-              height={455}
-              unoptimized
-              className="h-auto w-full object-contain drop-shadow-[0_22px_36px_rgba(14,116,144,0.16)]"
-              priority
-            />
-          </motion.div>
-        </motion.div>
-
-        <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-4 pb-10 pt-28 md:justify-center md:px-8 md:pb-16 lg:px-10">
-          <FadeIn className="max-w-xl rounded-3xl bg-white/55 p-5 shadow-lg shadow-pink-100/40 backdrop-blur-md md:bg-transparent md:p-0 md:shadow-none md:backdrop-blur-none">
+          <FadeIn className="relative z-10 mx-auto mt-2 w-full max-w-xl rounded-3xl bg-white/80 p-5 shadow-lg shadow-pink-100/40 backdrop-blur-md md:mt-4 md:bg-white/55 md:p-6">
             <p className="text-sm font-semibold text-accent-deep md:text-base">
               {siteConfig.yearLabel} {siteConfig.school} 신입생 모집안내
             </p>
@@ -122,7 +122,7 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          <Stagger className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-12">
+          <Stagger className="mt-auto grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-12">
             {heroStats.map((stat) => (
               <StaggerItem key={stat.label}>
                 <GlowCard className="soft-panel rounded-3xl px-5 py-4">
