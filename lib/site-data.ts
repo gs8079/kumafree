@@ -170,7 +170,8 @@ export const youtubeLibraries = [
     title: "학과 공식 YouTube",
     caption: "영상자율전공학과 공식 채널",
     url: "https://www.youtube.com/@Kuma_liberal",
-    embedUrl: "https://www.youtube.com/embed/yRDaaq0BO-Q",
+    embedUrl:
+      "https://www.youtube.com/embed/videoseries?list=UUupAjx6L7tkei0L8VteZWtw",
   },
   {
     id: "kuma-30th",

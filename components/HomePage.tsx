@@ -33,22 +33,22 @@ export default function HomePage() {
   const tel = siteConfig.phoneTel || "0448509031";
 
   return (
-    <main id="top" className="relative overflow-x-hidden pb-24 lg:pb-0">
+    <main id="top" className="relative overflow-x-hidden pb-32 lg:pb-0">
       <div className="hero-bright pointer-events-none fixed inset-0 -z-10" />
       <ConnectingRibbon />
       <SiteHeader />
 
       <section className="relative z-10 min-h-[100svh] w-full overflow-hidden">
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-4 pb-10 pt-24 md:px-8 md:pt-28 md:pb-16 lg:px-10">
-          <FadeIn className="mx-auto w-full max-w-xl text-center">
-            <div className="rounded-[1.75rem] bg-white/80 px-5 py-4 shadow-[0_12px_32px_-16px_rgba(190,24,93,0.2)] ring-1 ring-white/80 backdrop-blur-md sm:px-8 sm:py-5">
+          <FadeIn className="mx-auto w-full max-w-2xl text-center">
+            <div className="rounded-[1.75rem] bg-white/80 px-4 py-4 shadow-[0_12px_32px_-16px_rgba(190,24,93,0.2)] ring-1 ring-white/80 backdrop-blur-md sm:px-8 sm:py-5">
               <p className="text-sm font-semibold text-accent-deep md:text-base">
                 {siteConfig.yearLabel} {siteConfig.school} 신입생 모집안내
               </p>
               <p className="mt-2 text-sm font-bold text-brand md:text-base">
                 입학 후 전공학과 선택과 교과목 설계가 자유로운
               </p>
-              <h1 className="mt-2 break-keep font-[family-name:var(--font-display)] text-[1.85rem] leading-[1.2] font-black tracking-tight text-brand sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="mt-2 whitespace-nowrap font-[family-name:var(--font-display)] text-[clamp(1.35rem,6.6vw,3rem)] leading-tight font-black text-brand">
                 {siteConfig.brand}
               </h1>
             </div>
@@ -427,11 +427,11 @@ export default function HomePage() {
                 <p className="text-sm font-semibold text-slate-700">
                   영상자율전공학과 {siteConfig.deptPhone}
                 </p>
-                  <p className="text-sm leading-6 text-slate-500">
-                    {siteConfig.postalCode}
-                    <br />
-                    {siteConfig.address}
-                  </p>
+                <p className="w-full max-w-full text-sm leading-7 text-slate-500 [overflow-wrap:anywhere] [word-break:break-word]">
+                  <span className="block">30056</span>
+                  <span className="block">세종특별자치시</span>
+                  <span className="block">장군면 대학길 300</span>
+                </p>
                 <a
                   href={siteConfig.admissionsUrl}
                   className="inline-flex text-sm font-bold text-accent-deep underline"
@@ -444,7 +444,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="relative z-10 border-t border-brand/10 px-4 py-10 text-center text-sm leading-6 text-slate-500">
+      <footer className="relative z-10 w-full max-w-full overflow-hidden border-t border-brand/10 px-5 py-10 text-center text-sm leading-7 text-slate-500">
         <p className="font-[family-name:var(--font-display)] text-base font-extrabold text-slate-800">
           {siteConfig.slogan} {siteConfig.school} {siteConfig.brand}
         </p>
@@ -454,10 +454,10 @@ export default function HomePage() {
             {siteConfig.phoneNumber}
           </a>
         </p>
-        <p className="mt-1">
-          {siteConfig.postalCode}
-          <br />
-          {siteConfig.address}
+        <p className="mx-auto mt-1 w-full max-w-[16.5rem] [overflow-wrap:anywhere] [word-break:break-word]">
+          <span className="block">30056</span>
+          <span className="block">세종특별자치시</span>
+          <span className="block">장군면 대학길 300</span>
         </p>
       </footer>
 
@@ -509,7 +509,7 @@ function YoutubeCard({
   return (
     <FadeIn>
       <div className="overflow-hidden rounded-3xl border border-slate-800/20 bg-slate-950 text-white shadow-xl">
-        <div className="aspect-video w-full bg-black">
+        <div className="aspect-video w-full min-h-[180px] bg-black">
           <iframe
             className="h-full w-full"
             src={work.embedUrl}
@@ -517,7 +517,6 @@ function YoutubeCard({
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
           />
         </div>
         <div className="space-y-3 p-4 md:p-5">
