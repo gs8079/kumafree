@@ -26,6 +26,9 @@ export const siteConfig = {
   kakaoOpenChatUrl:
     process.env.NEXT_PUBLIC_KAKAO_OPENCHAT_URL ??
     "https://open.kakao.com/o/gH4QtsRh",
+  youtubeChannelUrl:
+    process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_URL ??
+    "https://www.youtube.com/@Kuma_liberal",
 };
 
 export const heroStats = [
@@ -159,4 +162,29 @@ export const quickLinks = [
 export const campusPhotos = [
   { src: "/assets/life-01.jpg", alt: "친해지길바라 · 새내기 교류 현장" },
   { src: "/assets/life-set.png", alt: "학과 캐릭터" },
+];
+
+export const youtubeLibraries = [
+  {
+    id: "dept-youtube",
+    title: "학과 공식 YouTube",
+    caption: "영상자율전공학과 공식 채널",
+    url: "https://www.youtube.com/@Kuma_liberal",
+    embedUrl: "https://www.youtube.com/embed/yRDaaq0BO-Q",
+  },
+  {
+    id: "kuma-30th",
+    title: "한국영상대 30주년 영상",
+    caption: "한국영상대학교 30주년 기념 영상",
+    url: "https://www.youtube.com/watch?v=JVMIzzZ6H8k",
+    embedUrl: "https://www.youtube.com/embed/JVMIzzZ6H8k",
+  },
+  {
+    id: "kuma-official",
+    title: "한국영상대 공식 YouTube",
+    caption: "대학 공식 채널 영상 목록",
+    url: "https://www.youtube.com/@dreamprokuma/videos",
+    embedUrl:
+      "https://www.youtube.com/embed?listType=user_uploads&list=dreamprokuma",
+  },
 ];

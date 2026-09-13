@@ -25,6 +25,9 @@ export default function SiteHeader() {
           <a href="#specials" className="hover:text-brand">
             특별함
           </a>
+          <a href="#youtube" className="hover:text-brand">
+            영상
+          </a>
           <a href="#admissions" className="hover:text-brand">
             모집요강
           </a>

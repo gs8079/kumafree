@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ConnectingRibbon from "@/components/ConnectingRibbon";
@@ -25,6 +26,7 @@ import {
   quickLinks,
   siteConfig,
   specials,
+  youtubeLibraries,
 } from "@/lib/site-data";
 
 export default function HomePage() {
@@ -39,15 +41,17 @@ export default function HomePage() {
       <section className="relative z-10 min-h-[100svh] w-full overflow-hidden">
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-4 pb-10 pt-24 md:px-8 md:pt-28 md:pb-16 lg:px-10">
           <FadeIn className="mx-auto w-full max-w-xl text-center">
-            <p className="text-sm font-semibold text-accent-deep md:text-base">
-              {siteConfig.yearLabel} {siteConfig.school} 신입생 모집안내
-            </p>
-            <p className="mt-2 text-sm font-bold text-brand md:text-base">
-              입학 후 전공학과 선택과 교과목 설계가 자유로운
-            </p>
-            <h1 className="mt-2 break-keep font-[family-name:var(--font-display)] text-[1.85rem] leading-[1.2] font-black tracking-tight text-brand sm:text-5xl md:text-6xl lg:text-7xl">
-              {siteConfig.brand}
-            </h1>
+            <div className="rounded-[1.75rem] bg-white/80 px-5 py-4 shadow-[0_12px_32px_-16px_rgba(190,24,93,0.2)] ring-1 ring-white/80 backdrop-blur-md sm:px-8 sm:py-5">
+              <p className="text-sm font-semibold text-accent-deep md:text-base">
+                {siteConfig.yearLabel} {siteConfig.school} 신입생 모집안내
+              </p>
+              <p className="mt-2 text-sm font-bold text-brand md:text-base">
+                입학 후 전공학과 선택과 교과목 설계가 자유로운
+              </p>
+              <h1 className="mt-2 break-keep font-[family-name:var(--font-display)] text-[1.85rem] leading-[1.2] font-black tracking-tight text-brand sm:text-5xl md:text-6xl lg:text-7xl">
+                {siteConfig.brand}
+              </h1>
+            </div>
           </FadeIn>
 
           <div className="pointer-events-none relative mx-auto mt-3 flex h-[200px] w-full max-w-lg items-end justify-center sm:h-[240px] md:mt-4 md:h-[280px]">
@@ -247,6 +251,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div id="youtube" className="relative z-10 mx-auto max-w-7xl px-4 pt-10 md:px-8 md:pt-12 lg:px-10">
+        <FadeIn>
+          <h3 className="font-[family-name:var(--font-display)] text-2xl font-extrabold text-slate-900 md:text-3xl">
+            YouTube 라이브러리 🎬
+          </h3>
+        </FadeIn>
+      </div>
       <CharacterBreak
         left={{
           src: "/assets/7.png",
@@ -260,7 +271,9 @@ export default function HomePage() {
           width: 188,
           height: 259,
         }}
-      />
+      >
+        <YoutubeCard work={youtubeLibraries[0]} />
+      </CharacterBreak>
 
       <section id="specials" className="relative z-10 mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
         <FadeIn>
@@ -319,7 +332,9 @@ export default function HomePage() {
           width: 153,
           height: 229,
         }}
-      />
+      >
+        <YoutubeCard work={youtubeLibraries[1]} />
+      </CharacterBreak>
 
       <section id="admissions" className="relative z-10 border-y border-brand/10 bg-white/35 backdrop-blur-[2px]">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
@@ -377,7 +392,9 @@ export default function HomePage() {
           width: 164,
           height: 240,
         }}
-      />
+      >
+        <YoutubeCard work={youtubeLibraries[2]} />
+      </CharacterBreak>
 
       <section id="contact" className="relative z-10 bg-[#fff0f7]/45">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
@@ -410,9 +427,11 @@ export default function HomePage() {
                 <p className="text-sm font-semibold text-slate-700">
                   영상자율전공학과 {siteConfig.deptPhone}
                 </p>
-                <p className="text-sm text-slate-500">
-                  {siteConfig.postalCode} {siteConfig.address}
-                </p>
+                  <p className="text-sm leading-6 text-slate-500">
+                    {siteConfig.postalCode}
+                    <br />
+                    {siteConfig.address}
+                  </p>
                 <a
                   href={siteConfig.admissionsUrl}
                   className="inline-flex text-sm font-bold text-accent-deep underline"
@@ -425,7 +444,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="relative z-10 border-t border-brand/10 py-10 text-center text-sm text-slate-500">
+      <footer className="relative z-10 border-t border-brand/10 px-4 py-10 text-center text-sm leading-6 text-slate-500">
         <p className="font-[family-name:var(--font-display)] text-base font-extrabold text-slate-800">
           {siteConfig.slogan} {siteConfig.school} {siteConfig.brand}
         </p>
@@ -436,7 +455,9 @@ export default function HomePage() {
           </a>
         </p>
         <p className="mt-1">
-          {siteConfig.postalCode} {siteConfig.address}
+          {siteConfig.postalCode}
+          <br />
+          {siteConfig.address}
         </p>
       </footer>
 
@@ -471,7 +492,7 @@ function CharacterFigure({
           width={width}
           height={height}
           unoptimized
-          className={`h-auto w-[168px] object-contain drop-shadow-[0_16px_24px_rgba(15,23,42,0.12)] sm:w-[210px] md:w-[250px] ${
+          className={`h-auto w-[96px] object-contain drop-shadow-[0_16px_24px_rgba(15,23,42,0.12)] sm:w-[120px] md:w-[150px] ${
             side === "right" ? "rotate-3" : "-rotate-3"
           }`}
         />
@@ -480,22 +501,74 @@ function CharacterFigure({
   );
 }
 
+function YoutubeCard({
+  work,
+}: {
+  work: (typeof youtubeLibraries)[number];
+}) {
+  return (
+    <FadeIn>
+      <div className="overflow-hidden rounded-3xl border border-slate-800/20 bg-slate-950 text-white shadow-xl">
+        <div className="aspect-video w-full bg-black">
+          <iframe
+            className="h-full w-full"
+            src={work.embedUrl}
+            title={work.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        </div>
+        <div className="space-y-3 p-4 md:p-5">
+          <h4 className="font-[family-name:var(--font-display)] text-lg font-extrabold md:text-xl">
+            {work.title}
+          </h4>
+          <p className="text-sm text-white/70">{work.caption}</p>
+          <MotionButton
+            href={work.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 text-sm font-bold text-accent"
+          >
+            YouTube에서 원본 보기
+          </MotionButton>
+        </div>
+      </div>
+    </FadeIn>
+  );
+}
+
 function CharacterBreak({
   left,
   right,
+  children,
 }: {
   left?: CharacterAsset;
   right?: CharacterAsset;
+  children?: ReactNode;
 }) {
-  const justify =
-    left && right ? "justify-between" : right ? "justify-end" : "justify-start";
-
   return (
-    <div
-      className={`relative z-10 mx-auto flex max-w-7xl items-end ${justify} gap-4 px-3 py-12 sm:gap-8 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-10`}
-    >
-      {left ? <CharacterFigure {...left} side="left" /> : null}
-      {right ? <CharacterFigure {...right} side="right" /> : null}
+    <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 md:px-8 md:py-8 lg:px-10">
+      {(left || right) && (
+        <div className="mb-3 flex items-end justify-between md:hidden">
+          {left ? <CharacterFigure {...left} side="left" /> : <span />}
+          {right ? <CharacterFigure {...right} side="right" /> : <span />}
+        </div>
+      )}
+      <div className="flex items-end gap-4 md:gap-6">
+        {left ? (
+          <div className="hidden shrink-0 md:block">
+            <CharacterFigure {...left} side="left" />
+          </div>
+        ) : null}
+        {children ? <div className="min-w-0 w-full flex-1">{children}</div> : null}
+        {right ? (
+          <div className="hidden shrink-0 md:block">
+            <CharacterFigure {...right} side="right" />
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }
