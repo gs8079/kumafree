@@ -201,6 +201,21 @@ export default function HomePage() {
         className="relative z-10 border-y border-brand/10 bg-white/25 backdrop-blur-[2px]"
       >
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
+          <FadeIn className="mb-8 flex justify-center sm:mb-10 md:mb-12">
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image
+                src="/assets/1.png"
+                alt="탐색과 설계 — 다양한 직무를 알아가는 학생들"
+                width={226}
+                height={227}
+                unoptimized
+                className="h-auto w-[200px] object-contain drop-shadow-[0_16px_28px_rgba(225,29,140,0.16)] sm:w-[240px] md:w-[280px]"
+              />
+            </motion.div>
+          </FadeIn>
           <FadeIn>
             <SectionHeading
               emoji="📚"
@@ -232,6 +247,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      <CharacterBreak
+        left={{
+          src: "/assets/7.png",
+          alt: "영상연출 캐릭터",
+          width: 220,
+          height: 344,
+        }}
+        right={{
+          src: "/assets/10.png",
+          alt: "영상촬영조명 캐릭터",
+          width: 188,
+          height: 259,
+        }}
+      />
+
       <section id="specials" className="relative z-10 mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
         <FadeIn>
           <SectionHeading
@@ -243,10 +273,10 @@ export default function HomePage() {
         <FadeIn className="mt-6 md:mt-8">
           <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-pink-200/50">
             <Image
-              src="/assets/life-01.png"
+              src="/assets/life-01.jpg"
               alt="친해지길바라 · 새내기 교류 현장"
-              width={1600}
-              height={900}
+              width={2000}
+              height={1333}
               className="h-[240px] w-full object-cover sm:h-[320px] md:h-[420px] lg:h-[520px]"
             />
           </div>
@@ -281,6 +311,15 @@ export default function HomePage() {
           </Stagger>
         </div>
       </section>
+
+      <CharacterBreak
+        left={{
+          src: "/assets/9.png",
+          alt: "영상편집 캐릭터",
+          width: 153,
+          height: 229,
+        }}
+      />
 
       <section id="admissions" className="relative z-10 border-y border-brand/10 bg-white/35 backdrop-blur-[2px]">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
@@ -330,6 +369,15 @@ export default function HomePage() {
           </FadeIn>
         </div>
       </section>
+
+      <CharacterBreak
+        right={{
+          src: "/assets/8.png",
+          alt: "음향제작 캐릭터",
+          width: 164,
+          height: 240,
+        }}
+      />
 
       <section id="contact" className="relative z-10 bg-[#fff0f7]/45">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-10">
@@ -394,6 +442,61 @@ export default function HomePage() {
 
       <FloatingBar />
     </main>
+  );
+}
+
+type CharacterAsset = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+function CharacterFigure({
+  src,
+  alt,
+  width,
+  height,
+  side,
+}: CharacterAsset & { side: "left" | "right" }) {
+  return (
+    <FadeIn>
+      <motion.div
+        animate={{ y: [0, side === "right" ? 10 : -10, 0] }}
+        transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          unoptimized
+          className={`h-auto w-[168px] object-contain drop-shadow-[0_16px_24px_rgba(15,23,42,0.12)] sm:w-[210px] md:w-[250px] ${
+            side === "right" ? "rotate-3" : "-rotate-3"
+          }`}
+        />
+      </motion.div>
+    </FadeIn>
+  );
+}
+
+function CharacterBreak({
+  left,
+  right,
+}: {
+  left?: CharacterAsset;
+  right?: CharacterAsset;
+}) {
+  const justify =
+    left && right ? "justify-between" : right ? "justify-end" : "justify-start";
+
+  return (
+    <div
+      className={`relative z-10 mx-auto flex max-w-7xl items-end ${justify} gap-4 px-3 py-12 sm:gap-8 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-10`}
+    >
+      {left ? <CharacterFigure {...left} side="left" /> : null}
+      {right ? <CharacterFigure {...right} side="right" /> : null}
+    </div>
   );
 }
 

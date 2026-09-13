@@ -157,6 +157,6 @@ export const quickLinks = [
 ];
 
 export const campusPhotos = [
-  { src: "/assets/life-01.png", alt: "친해지길바라 · 새내기 교류 현장" },
+  { src: "/assets/life-01.jpg", alt: "친해지길바라 · 새내기 교류 현장" },
   { src: "/assets/life-set.png", alt: "학과 캐릭터" },
 ];
