@@ -34,7 +34,12 @@ export const siteConfig = {
 export const heroStats = [
   { label: "전형 방법", value: 100, suffix: "%", note: "교과 학생부 전형" },
   { label: "수업 연한", value: 3, suffix: "년제", note: "자유로운 전공 설계" },
-  { label: "학과 변경", value: 2, suffix: "회", note: "유일한 학과 변경 기회" },
+  {
+    label: "학과 변경",
+    value: 2,
+    suffix: "회",
+    note: "1학년 1학기 희망 학과 배치, 이후 희망 시 전과 가능",
+  },
 ];
 
 export const marqueeItems = [
@@ -60,8 +65,8 @@ export const deptIntro = {
 
 export const onlyPoints = [
   {
-    title: "2번의 학과 변경이 가능한 유일한 학과!",
-    note: "1학년 1학기 이수 후 학과배치, 희망 시 1학년 2학기 전과 가능",
+    title: "2번의 학과 변경이 가능한 학과!",
+    note: "1학년 1학기 희망 학과 배치, 이후 희망 시 전과 가능",
   },
   {
     title: "원하는 학과, 원하는 수업을 자유롭게 설계할 수 있는 유일한 학과",
@@ -77,24 +82,30 @@ export const placementMajors = [
   "영화영상학과",
   "영상디자인학과",
   "방송영상미디어학과",
+  "애니메이션학과",
+  "게임콘텐츠학과",
+  "미디어보이스학과",
 ];
 
 export const curriculumSteps = [
   {
-    step: "Step 1",
+    step: "1",
     term: "1학년 1학기",
     title: "탐색과 설계",
     body: "영상자율전공학과 과목 수강: 진로설계, 영상직무의 이해",
-    extra: "다양한 직무 탐색 + 관심 학과 수업 일부 선택 가능",
+    extra: "다양한 전공 체험 + 관심 학과 수업 일부 선택 가능",
   },
   {
-    step: "Step 2",
-    term: "1학년 2학기",
+    step: "2",
+    term: "1학년 2학기 이후",
     title: "희망 학과로 배치",
-    body: "본격적인 전공 심화 수업 시작",
-    extra: placementMajors.join(", "),
+    body: "희망 학과로 배치되어 본격적인 전공 심화 수업 시작",
+    extra: "",
   },
 ];
+
+export const curriculumClosing =
+  "이런 과정을 통해 학생은 자신의 흥미와 적성에 맞는 전공을 자율적이고 단계적으로 설계할 수 있게 됩니다.";
 
 export const specials = [
   {

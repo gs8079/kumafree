@@ -19,6 +19,7 @@ import {
 import {
   awards,
   curriculumSteps,
+  curriculumClosing,
   deptIntro,
   heroStats,
   onlyPoints,
@@ -225,29 +226,66 @@ export default function HomePage() {
               emoji="📚"
               eyebrow="Curriculum"
               title="교육과정"
-              desc="1학년 1학기는 탐색, 2학기부터는 희망 학과에서 전공을 심화합니다."
+              desc="1학년 1학기는 탐색, 2학기 이후에는 희망 학과에서 전공을 심화합니다."
             />
           </FadeIn>
-          <Stagger className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            {curriculumSteps.map((step) => (
-              <StaggerItem key={step.step}>
-                <GlowCard className="h-full rounded-3xl bg-[#3730a3] p-6 text-white md:p-8">
-                  <p className="text-sm font-bold tracking-wide text-cyan-200">
-                    {step.step} · {step.term}
-                  </p>
-                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-black md:text-3xl">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-relaxed text-white/90">
-                    {step.body}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-cyan-100">
-                    {step.extra}
-                  </p>
-                </GlowCard>
-              </StaggerItem>
-            ))}
+          <Stagger className="mt-8 flex flex-col gap-4 md:flex-row md:items-stretch">
+            <StaggerItem className="md:flex-1">
+              <GlowCard className="h-full rounded-3xl bg-[#3730a3] p-6 text-white md:p-8">
+                <p className="inline-flex items-center gap-2 text-sm font-bold tracking-wide text-cyan-200">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-cyan-200 text-xs font-black text-[#3730a3]">
+                    {curriculumSteps[0].step}
+                  </span>
+                  {curriculumSteps[0].term}
+                </p>
+                <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-black md:text-3xl">
+                  {curriculumSteps[0].title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-white/90">
+                  {curriculumSteps[0].body}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-cyan-100">
+                  {curriculumSteps[0].extra}
+                </p>
+              </GlowCard>
+            </StaggerItem>
+            <div className="flex items-center justify-center" aria-hidden>
+              <span className="rotate-90 text-3xl font-black text-brand md:rotate-0">
+                →
+              </span>
+            </div>
+            <StaggerItem className="md:flex-1">
+              <GlowCard className="h-full rounded-3xl bg-[#3730a3] p-6 text-white md:p-8">
+                <p className="inline-flex items-center gap-2 text-sm font-bold tracking-wide text-cyan-200">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-cyan-200 text-xs font-black text-[#3730a3]">
+                    {curriculumSteps[1].step}
+                  </span>
+                  {curriculumSteps[1].term}
+                </p>
+                <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-black md:text-3xl">
+                  {curriculumSteps[1].title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-white/90">
+                  {curriculumSteps[1].body}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {placementMajors.map((major) => (
+                    <span
+                      key={major}
+                      className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-cyan-50"
+                    >
+                      {major}
+                    </span>
+                  ))}
+                </div>
+              </GlowCard>
+            </StaggerItem>
           </Stagger>
+          <FadeIn className="mt-6">
+            <p className="rounded-2xl bg-white/75 px-4 py-4 text-center text-sm leading-relaxed text-slate-700 ring-1 ring-brand/10 md:text-base">
+              {curriculumClosing}
+            </p>
+          </FadeIn>
         </div>
       </section>
 

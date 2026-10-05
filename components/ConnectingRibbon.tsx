@@ -46,33 +46,33 @@ export default function ConnectingRibbon() {
               <stop offset="100%" stopColor="#a5b4fc" />
             </linearGradient>
             <filter id="ribbon-blur" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="10" />
+              <feGaussianBlur stdDeviation="6" />
             </filter>
           </defs>
 
           <motion.path
             d={PATH_MAIN}
             stroke="url(#ribbon-main)"
-            strokeWidth="56"
+            strokeWidth="22"
             strokeLinecap="round"
             filter="url(#ribbon-blur)"
-            opacity="0.22"
-            strokeDasharray="140 90 40 160 220 70"
+            opacity="0.18"
+            strokeDasharray="90 70 28 120 160 50"
             style={{ pathLength: drawMain, strokeDashoffset: thickOffset }}
           />
           <motion.path
             d={PATH_MAIN}
             stroke="url(#ribbon-main)"
-            strokeWidth="38"
+            strokeWidth="12"
             strokeLinecap="round"
-            strokeDasharray="70 130 30 200 110 80"
-            opacity="0.85"
+            strokeDasharray="48 110 22 160 80 64"
+            opacity="0.8"
             style={{ pathLength: drawMain, strokeDashoffset: thickOffset }}
           />
           <motion.path
             d={PATH_MAIN}
             stroke="url(#ribbon-main)"
-            strokeWidth="5"
+            strokeWidth="3"
             strokeLinecap="round"
             opacity="0.95"
             style={{ pathLength: drawMain }}
@@ -80,16 +80,16 @@ export default function ConnectingRibbon() {
           <motion.path
             d={PATH_ACCENT}
             stroke="url(#ribbon-soft)"
-            strokeWidth="24"
+            strokeWidth="9"
             strokeLinecap="round"
-            strokeDasharray="50 170 18 240 90 120"
-            opacity="0.7"
+            strokeDasharray="36 140 14 200 70 96"
+            opacity="0.65"
             style={{ pathLength: drawAccent, strokeDashoffset: thinOffset }}
           />
           <motion.path
             d={PATH_ACCENT}
             stroke="url(#ribbon-soft)"
-            strokeWidth="3"
+            strokeWidth="2"
             strokeLinecap="round"
             opacity="0.9"
             style={{ pathLength: drawAccent }}
