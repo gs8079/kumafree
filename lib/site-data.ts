@@ -85,6 +85,7 @@ export const placementMajors = [
   "애니메이션학과",
   "게임콘텐츠학과",
   "미디어보이스학과",
+  "VFX학과",
 ];
 
 export const curriculumSteps = [
